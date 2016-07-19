@@ -13,11 +13,22 @@ lines.each do |line|
   rows << line.chomp.split(",")
 end
 
-p rows.first
-#=> ["title", "release date", "director", "genre"]
+#["title","director"]
+#["Star Wars", "director"...]
+#{title=>"Star Wars...","director" => "George..."}
 
+movies = []
+headers = nil
+rows.each do |row|
+  next if row.empty?
+  if headers.nil?
+    headers = row
+  else
+    movies << Hash[headers.zip(row)]
+  end
+end
 
-
+p movies.last
 
 #2. Parse the data into a set of movies
 #3. Find out how many movies I have in each genre
