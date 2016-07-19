@@ -26,5 +26,39 @@
     int * 2
   end
   ```
+* Conditionals
+ * Predicate methods
 
+ ```ruby
+ if 4.even?
+   puts "4 is even"
+ else
+   puts "4 is odd"
+ end
+ ```
+ * guard clauses
+
+ ```ruby
+ puts "4 is even" if 4.even?
+ puts "4 is even" unless 4.odd?
+ ```
+
+ * conditional assignment
+
+ ```ruby
+ def best_player
+   @best_players ||=database.lookup
+ end
+
+ def best_player
+   @best_players ||=begin
+    players = database.table(:players)
+    sorted = players.order(:points)
+    sorted.top(10)
+   end
+ end
+ ```
+
+
+##
 * Copy right: pluralsight -> ruby idiomatic
