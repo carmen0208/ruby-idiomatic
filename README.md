@@ -93,5 +93,18 @@
    * Readablility
    * gem
 
+####Enumerable is Our Pal
+* Map
+
+  ```ruby
+  rows = [row1, row2, row3]
+  movies = []
+  rows.each do |row|
+    movies << Movie.new(row)
+  end
+  movies # => [movie1, movie2, movie3]
+  ```
+
+
 ####copy rights
 * Copy right: pluralsight -> ruby idiomatic
