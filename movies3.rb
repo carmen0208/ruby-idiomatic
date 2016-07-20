@@ -6,10 +6,22 @@ rows= CSV.read('movies.csv', :headers => true, :header_converters => :symbol,
 
 # p Movie.new(rows.first)
 #2. Parse the data into a set of movies
+#class CSV::Table
+#  include Enumerable
+#end
+module Enumerable
+  def transform
+    collection2 = []
+    each do |item|
+      collection2 << yield(item)
+    end
+    collection2
+  end
+end
 
 movies = []
-rows.each do |row|
-  movies << Movie.new(row)
+movies = rows.transform do |row|
+  Movie.new(row)
 end
 
 p movies.last
