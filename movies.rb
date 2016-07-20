@@ -28,7 +28,7 @@ rows.each do |row|
   end
 end
 
-p movies.last
+p movies
 
 #2. Parse the data into a set of movies
 #3. Find out how many movies I have in each genre

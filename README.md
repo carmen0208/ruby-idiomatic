@@ -59,6 +59,7 @@
  end
  ```
 
+* [[ruby doc - CSV|http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html]]
 
-##
+####copy rights
 * Copy right: pluralsight -> ruby idiomatic
