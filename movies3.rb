@@ -9,20 +9,22 @@ rows= CSV.read('movies.csv', :headers => true, :header_converters => :symbol,
 #class CSV::Table
 #  include Enumerable
 #end
-module Enumerable
-  def transform
-    collection2 = []
-    each do |item|
-      collection2 << yield(item)
-    end
-    collection2
-  end
-end
+# module Enumerable
+#   def transform
+#     collection2 = []
+#     each do |item|
+#       collection2 << yield(item)
+#     end
+#     collection2
+#   end
+# end
 
-movies = []
-movies = rows.transform do |row|
-  Movie.new(row)
-end
+#movies = []
+# movies = rows.transform do |row|
+#   Movie.new(row)
+# end
+
+movies = rows.map {|row| Movie.new(row) }
 
 p movies.last
 
