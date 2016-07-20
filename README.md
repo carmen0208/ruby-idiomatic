@@ -59,7 +59,30 @@
  end
  ```
 
-* [[ruby doc - CSV|http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html]]
+* Symbols:
+ * [[ruby doc - CSV|http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html]]
+
+ * String -- mutable objects which means add, modify contents of strings...
+   * if you need to compare to strings, Ruby will hae to compare their contents character by character, and if we wanted to use a string as a hash key, Ruby will have to generate that hash code character by character.
+ * Symbols -- not mutable
+ ```ruby
+ :ruby + :awesome
+ #=> NoMethodError
+ :ruby == :ruby #=> true
+ ```
+
+  this simplicity means that Ruby can check if two symbols are equal and generate their hash codes extremely quickly.
+
+  ```ruby
+  :ruby.object_id #=> 323688
+  :ruby.object_id #=> 323688
+  ```
+  if you write the same symbol twice or 1000 times in your Ruby program, ruby will only ever create a single object for that symbol.
+
+  Ruby will only ever create a single object for that symbol, So symbols in some ways take the place of enums from other language.
+
+  Internally Ruby can just keep a list of the possible symbols it has seen and our code can treat them like integers when it checks for equality or generates hash codes.
+
 
 ####copy rights
 * Copy right: pluralsight -> ruby idiomatic
