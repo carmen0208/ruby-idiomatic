@@ -1,8 +1,9 @@
 require 'date'
 class Movie
 
-  attr_accessor :director, :genre, :release_date, :rotten_tomatoes, :title
-
+  attr_reader :director, :genre, :release_date, :rotten_tomatoes, :title
+  attr_writer :genre
+  
   def initialize(csv_row)
     @director = csv_row[:director]
     @genre = csv_row[:genre]
@@ -11,7 +12,12 @@ class Movie
     @title = csv_row[:title]
   end
 
-  # def director
-  #   return @director
+  def comedy?
+    genre == "Comedy"
+  end
+
+  # def genre=(new_genre)
+  #   @genre = new_genre
   # end
+
 end

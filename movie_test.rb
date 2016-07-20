@@ -13,6 +13,12 @@ class MovieTest < Minitest::Test
       })
   end
 
+  def test_comedy?
+    assert_equal false, @movie.comedy?
+    @movie.genre = "Comedy"
+    assert_equal true, @movie.comedy?
+  end
+
   def test_director
     assert_equal "George Lucas", @movie.director
   end
