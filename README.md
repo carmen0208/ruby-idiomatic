@@ -83,6 +83,15 @@
 
   Internally Ruby can just keep a list of the possible symbols it has seen and our code can treat them like integers when it checks for equality or generates hash codes.
 
+####Building Objects
+
+* Unit Test
+  * MiniTest
+    * Simple
+    * Standard Library
+  * RSpec
+   * Readablility
+   * gem
 
 ####copy rights
 * Copy right: pluralsight -> ruby idiomatic
