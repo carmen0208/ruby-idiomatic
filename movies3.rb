@@ -50,12 +50,41 @@ movies = rows.map {|row| Movie.new(row) }
 
 ##3rd way to do it :
 with_rotten_tomatoes = movies.select{|movie| movie.rotten_tomatoes >0}
-total_rotten_tomatoes = 0.0
-with_rotten_tomatoes.each do |movie|
-  total_rotten_tomatoes += movie.rotten_tomatoes
+
+#2-c: get total_rotten_tomatoes
+## 1st way to do it:
+
+# total_rotten_tomatoes = 0.0
+# with_rotten_tomatoes.each do |movie|
+#   total_rotten_tomatoes += movie.rotten_tomatoes
+# end
+
+## 2nd way to do it:
+
+# module Enumerable
+#   def aggregate(initial_value)
+#     aggregation_value = initial_value
+#     each do |item|
+#       aggregation_value = yield(aggregation_value, item)
+#     end
+#     aggregation_value
+#   end
+# end
+# total_rotten_tomatoes = with_rotten_tomatoes.aggregate(0.0) do |total, movie|
+#   total + movie.rotten_tomatoes
+# end
+
+## 3rd way to do it:
+
+total_rotten_tomatoes = with_rotten_tomatoes.reduce(0.0) do |total, movie|
+  total + movie.rotten_tomatoes
 end
 
 average_rotten_tomatoes = total_rotten_tomatoes / with_rotten_tomatoes.size
+
+
+
+
 
 puts "Average Rotten Tomatoes Score: #{average_rotten_tomatoes}"
 
