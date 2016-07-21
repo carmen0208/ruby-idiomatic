@@ -100,6 +100,7 @@ puts "Average Rotten Tomatoes Score: #{average_rotten_tomatoes}"
 ## 2nd way
 movie_by_month = movies.group_by do |movie|
   movie.release_date.strftime("%B")
+  # movie.genre
 end
 
 # p movie_by_month #{"Janary" => [movie1,movie2 ...],"Febrary"=>[movie4],...}
