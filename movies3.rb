@@ -116,7 +116,15 @@ count_by_month = movie_by_month.map do |month, list|
   [month, list.size]
 end
 
-p count_by_month.map {|pair| pair.join(": ")}
+# Sort By popilarity
+##1st Way
+# count_by_month = count_by_month.sort_by do |pair|
+#   pair.last
+# end
+#2nd Way
+count_by_month = count_by_month.sort_by(&:last).reverse
+
+puts count_by_month.map {|pair| pair.join(": ")}.join("\n")
 # December : 12
 # June: 2
 
