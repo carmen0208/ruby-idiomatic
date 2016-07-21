@@ -82,11 +82,43 @@ end
 
 average_rotten_tomatoes = total_rotten_tomatoes / with_rotten_tomatoes.size
 
-
-
-
-
 puts "Average Rotten Tomatoes Score: #{average_rotten_tomatoes}"
+
+# Big Release During Holidays?
+# {"January" => 1, "Febrary" => 3 ....}
+# SELECT month, COUNT(*) FROM movies GROUP BY month ORDER BY COUNT(*) DESC
+## 1st way
+# count_by_month ={}
+# movies.each do |movie|
+#   month_name = movie.release_date.strftime("%B")
+#   count_by_month[month_name]||= 0
+#   count_by_month[month_name] += 1
+# end
+#
+# p count_by_month
+
+## 2nd way
+movie_by_month = movies.group_by do |movie|
+  movie.release_date.strftime("%B")
+end
+
+# p movie_by_month #{"Janary" => [movie1,movie2 ...],"Febrary"=>[movie4],...}
+
+# count_by_month = movie_by_month.map do |month_and_list|
+#   # month = month_and_list.first
+#   # list = month_and_list.last
+#   month, list = month_and_list
+#   [month, list.size]
+# end
+
+## 3rd way
+count_by_month = movie_by_month.map do |month, list|
+  [month, list.size]
+end
+
+p count_by_month.map {|pair| pair.join(": ")}
+# December : 12
+# June: 2
 
 # p movies.last
 
