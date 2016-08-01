@@ -9,6 +9,10 @@
 # Computer as a Dynamic Proxy
 require_relative 'data_source'
 
+#see more info
+#Object.instance_methods.grep /^d/   ​# => [:dup, :display, :define_singleton_method]​
+
+
 class Computer < BasicObject
   def initialize(computer_id,data_source)
     @id = computer_id
