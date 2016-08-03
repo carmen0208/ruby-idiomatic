@@ -1,0 +1,42 @@
+# def setup(&block)
+#   @setups << block
+# end
+# def event(description, &block)
+#   @events << {:description => description, :condition => block}
+# end
+
+
+lambda {
+  setups =[]
+  events =[]
+
+  Kernel.send :define_method, :setup do |&block|
+    setups << block
+  end
+
+  Kernel.send :define_method, :event do |description, &block|
+    events << {:description => description, :condition => block}
+  end
+#notice the folloing 2 methods
+  Kernel.send :define_method, :each_setup do |&block|
+    setups.each do |setup|
+      block.call setup
+    end
+  end
+
+  Kernel.send :define_method, :each_event do |&block|
+    events.each do |event|
+      block.call event
+    end
+  end
+
+}.call
+load 'metaprogramming/blocks/redflag_5/events.rb'
+
+each_event do |event|
+  env = Object.new
+  each_setup do |setup|
+    env.instance_eval &setup
+  end
+  puts "ALERT: #{event[:description]}" if env.instance_eval &(event[:condition])
+end
