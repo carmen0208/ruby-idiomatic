@@ -2,4 +2,8 @@
 * [002: Large Integer](1-10/002_large_integer_literals.md)
 * [003: Charactor Literal](1-10/003_character_literals.md)
 * [004: Barewords](1-10/004_barewords.md)
-
+* [005: Array Literals](1-10/005_array_literals.md)
+* [006: Forwardable](1-10/006_forwardable.md)
+* [007: Constructors](1-10/007_constructors.md)
+* [008: Constructors](1-10/008_fetch_as_assertion.md)
+* [009: Constructors](1-10/008_Symbol_Literals.md)
