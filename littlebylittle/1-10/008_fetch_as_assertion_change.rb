@@ -26,3 +26,11 @@ u.token = auth.fetch('credentials').fetch('token')
 p greeting = "Good morning, #{u.first_name.capitalize}"
 greeting #=>in `fetch': key not found: "first_name" (KeyError)
        	# from 008_fetch_as_assertion_change.rb:22:in `<main>' 
+
+Dir.home
+
+ENV.delete('HOME')
+
+require 'etc'
+
+user = Etc.getlogin #=>'carmenliu'
