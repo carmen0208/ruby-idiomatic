@@ -25,4 +25,6 @@ end
 
 Greeter.new.logged_send(:hello, "Major Tom")
 
+# Greeter.new.logged_send(:hello, "Major Tom","carmen")
+
 

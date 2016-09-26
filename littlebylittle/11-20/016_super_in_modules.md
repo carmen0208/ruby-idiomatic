@@ -35,3 +35,36 @@ end
   ```
 
   [example](016_super_in_modules_send.rb)
+
+##supplementary knowledge:
+
+* bind(obj) -> method   
+
+  more info:(dash method.bind)
+
+  Bind umeth to obj. If Klass was the class from which umeth was obtained, obj.kind_of?(Klass) must be true.
+
+  ```ruby
+class A
+  def test
+    puts "In test, class = #{self.class}"
+  end
+end
+class B < A
+end
+class C < B
+end
+
+um = B.instance_method(:test)
+bm = um.bind(C.new)
+bm.call
+bm = um.bind(B.new)
+bm.call
+bm = um.bind(A.new)
+bm.call
+
+#=>In test, class = C
+#In test, class = B
+#prog.rb:16:in `bind': bind argument must be an instance of B (TypeError)
+# from prog.rb:16
+  ```
