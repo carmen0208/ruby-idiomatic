@@ -1,3 +1,6 @@
 metaprogramming/gems
 .idea
 .irb-history
+littlebylittle/.bundle/
+littlebylittle/.rspec
+littlebylittle/bin/
