@@ -6,7 +6,7 @@ class Task < ActiveRecord::Base
 
   around_save :notify_on_save
   def add_listener(listener)
-    (@listeners || =[]) << listener
+    (@listeners ||=[]) << listener
   end
   def notify_listeners(event_name, *args)
     @listeners && @listeners.each do |listener|
