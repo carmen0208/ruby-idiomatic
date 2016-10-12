@@ -14,21 +14,40 @@ module Eventful
   end
   module Macros
     def event(name)
-      module_eval(%Q{
+      mod = Module.new
+      #inserting the generated method into the class’s ancestor chain
+      mod.module_eval(%Q{
         def #{name}(*args)
           notify_listeners(:#{name}, *args)
         end
+        def self.to_s
+          'Event(#{name})'
+        end
       })
+      include mod
     end
 
   end
 end
-module ABC
-end
 class Dradis
   include Eventful
-  extend ABC 
+
   event :new_contact
+  event :radiation_warning
+  event :tigh_is_drink_again
+
+  attr_reader :contact_count
+
+  def initialize
+    @contact_count = 0
+  end
+
+  #not works because it creating an infinite recursion and overflowing the stack
+  def new_contact(*args)
+    @contact_count +=1
+    super
+    # new_contact(*args)
+  end
 end
 
 class ConsoleListener
@@ -36,10 +55,17 @@ class ConsoleListener
     puts "DRADIS contact! #{range} kilometers, bearing #{direction}"
   end
 end
- 
+
 dradis = Dradis.new
 dradis.add_listener(ConsoleListener.new)
 dradis.new_contact(120, 23000)
-
 puts Dradis.ancestors
-#puts dradis.ancestors
+
+ #=>Dradis
+ #=>Event(tigh_is_drink_again)
+ #=>Event(radiation_warning)
+ #=>Event(new_contact)
+ #=>Eventful
+ #=>Object
+ #=>Kernel
+ #=>BasicObject

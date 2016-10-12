@@ -14,7 +14,18 @@ module Eventful
   end
   module Macros
     def event(name)
-      mod = Module.new
+      # Says whether mod or its ancestors have a constant with the given name:
+      mod = if const_defined?(:Events, false)
+              const_get(:Events)
+            else
+                new_mod = Module.new do 
+                  def self.to_s
+                    "Events(#{instance_methods(false).join(', ')})"
+                  end
+                end
+                #Sets the named constant to the given object, returning that object. Creates a new constant if no constant with the given name previously existed.
+                const_set(:Events, new_mod)
+            end
       #inserting the generated method into the class’s ancestor chain
       mod.module_eval(%Q{
         def #{name}(*args)
@@ -30,6 +41,8 @@ class Dradis
   include Eventful
 
   event :new_contact
+  event :radiation_warning
+  event :tigh_is_drink_again
 
   attr_reader :contact_count
 
@@ -55,3 +68,18 @@ dradis = Dradis.new
 dradis.add_listener(ConsoleListener.new)
 dradis.new_contact(120, 23000)
 puts Dradis.ancestors
+
+ #=>Dradis
+ #=>Events(new_contact, radiation_warning, tigh_is_drink_again)
+ #=>Eventful
+ #=>Object
+ #=>Kernel
+ #=>BasicObject
+
+Dradis::Events.instance_methods(false).each do |event_trigger|
+  puts event_trigger
+end
+
+ #=>new_contact
+ #=>radiation_warning
+ #=>tigh_is_drink_again
