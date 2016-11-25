@@ -15,7 +15,10 @@ class Computer
     @id = computer_id
     @data_source = data_source
 # not so clear with $1, which seems a global variable, but I don't know what it is
-    data_source.methods.grep(/^get_(.*)_info$/) { Computer.define_component $1 }
+    data_source.methods.grep(/^get_(.*)_info$/) do
+      # puts $1
+      Computer.define_component $1
+    end
   end
 
   def self.define_component(name)
@@ -23,11 +26,15 @@ class Computer
       # ...
       info = @data_source.send "get_#{name}_info", @id
       price = @data_source.send "get_#{name}_price", @id
-      result = "#{name.capitalize}: #{info} ($#{price})"
+      puts  result = "#{name.capitalize}: #{info} ($#{price})"
       return "* #{result}" if price >= 100
       result
     end
   end
+
 end
 
-require_relative 'unit_test'
+require 'minitest/autorun'
+
+Computer.new(42,  DS.new).mouse
+Computer.new(42,  DS.new).cpu

@@ -18,4 +18,4 @@ just_yield do
 end
 
 puts top_level_variable # => 2
-puts local_to_block  # => Error!
+# puts local_to_block  # => Error!

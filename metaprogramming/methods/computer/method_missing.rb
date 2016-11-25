@@ -19,8 +19,8 @@ class Computer < BasicObject
     @data_source = data_source
   end
 
-  def method_missing(name)
-    super if !@data_source.respond_to?("get_#{name}_info")
+  def method_missing(name, *args)
+    super unless @data_source.respond_to?("get_#{name}_info")
     info = @data_source.send("get_#{name}_info", @id)
     price = @data_source.send("get_#{name}_price", @id)
     result = "#{name.capitalize}: #{info} ($#{price})"
@@ -31,6 +31,7 @@ class Computer < BasicObject
 end
 
 cmp = Computer.new(0,DS.new)
+puts cmp.mouse
 puts cmp.respond_to?(:mouse)  # => false
 
 class Computer
@@ -39,4 +40,4 @@ class Computer
   end
 end
 
-puts cmp.respond_to?(:mouse)  # => true
+# puts cmp.respond_to?(:mouse)  # => true

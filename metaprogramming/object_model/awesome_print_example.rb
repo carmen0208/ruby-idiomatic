@@ -1,10 +1,12 @@
 
 #gem install "awesome_print"
 
+
 require 'awesome_print'
 
 local_time ={:city=>"Rome", :now => Time.now }
 ap local_time, :indent => 2
+
 ap Kernel.private_instance_methods.grep(/^pr/)
 ​# => [:printf, :print, :proc]​
 

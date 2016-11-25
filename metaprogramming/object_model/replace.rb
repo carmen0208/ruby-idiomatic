@@ -27,7 +27,7 @@ class ArrayExtensionTest < Minitest::Test
   end
 end
 
-# it can be dangous because you might trace other array replace method,
-# which would crasht he other function
+# it can be dangerous because you might trace other array replace method,
+# which would crash he other function
 # Monkey patching
 puts [].methods.grep /^re/

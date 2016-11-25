@@ -47,7 +47,7 @@ end
 
 
 ds = DS.new
-puts ds.get_cpu_info(42)     # => "2.9 Ghz quad-core"
-puts ds.get_cpu_price(42)    # => 120
-puts ds.get_mouse_info(42)   # => "Wireless Touch"
-puts ds.get_mouse_price(42)  # => 60
+# puts ds.get_cpu_info(42)     # => "2.9 Ghz quad-core"
+# puts ds.get_cpu_price(42)    # => 120
+# puts ds.get_mouse_info(42)   # => "Wireless Touch"
+# puts ds.get_mouse_price(42)  # => 60
