@@ -4,3 +4,4 @@ metaprogramming/gems
 littlebylittle/.bundle/
 littlebylittle/.rspec
 littlebylittle/bin/
+**/*.DS_Store
