@@ -4,6 +4,7 @@ p Numberic === 123 #=> true
 
 # the threequals is used under the hood by case statements.
 
+
 case obj
 when /\A\d+\z/
   puts "A numeric string"
