@@ -1,0 +1,11 @@
+filename: confident-ruby.monolith
+
+number: 1
+
+name: confident-ruby-001
+
+role: source
+
+
+
+puts "Hello, world"
