@@ -33,5 +33,11 @@ end
         object(**his object is an external iterator over a collection. You can think of it as a lazy version of the visitors Array we created in the very first version of this program**)
      3. Using the way the Enmerator prvoded, which is count to count the values
 
-  
+    ```ruby
+    x = [1,2,3,4,5]
+    #=> [1, 2, 3, 4, 5]
+    x.each
+    #=> #<Enumerator: [1, 2, 3, 4, 5]:each>
+    ```
 
+## //TODO: Enumerator might be the part that can be familiar with
