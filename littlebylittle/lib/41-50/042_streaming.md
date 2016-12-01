@@ -16,17 +16,17 @@ end
 
 ### Streaming
 
-* (Version1)[050_streaming.rb]
+* (Version1)[042_streaming.rb]
 
   Get all data out to a CSV file and then count it. it's really un-efficient
 
-* (Version2)[050_streaming1.rb]
+* (Version2)[042_streaming1.rb]
 
   iterate CSV with foreach method, count each line and get the right put.
   
   it is good, but sometime, we can't use emurable way to list it
 
-* (Version3)[050_streaming2.rb]
+* (Version3)[042_streaming2.rb]
 
      1. Call the #each method, which iterates over rows
      2. The return value of #each when given no block is an Enumerator
