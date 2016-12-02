@@ -5,3 +5,4 @@ littlebylittle/.bundle/
 littlebylittle/.rspec
 littlebylittle/bin/
 **/*.DS_Store
+**/.bundle/
