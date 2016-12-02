@@ -16,3 +16,18 @@ bundle install --binstubs
    ```sh
     rspec
    ```
+
+### Initialize a integration test
+* start from a test it self and do TDD
+
+here's the benefit:
+
+* Gotten my testing infrastructure assembled and working
+* written a high-level, two-line executable specification for the first user story.
+* started to hash out the structure of my object model, guided by the test.
+* Set up a persistence mechanism
+* Most importantly, I’ve established a test-driven rhythm for my application 
+from the get-go. Every step from here until completion will be either making a 
+test pass, refactoring the resulting code, or improving my test suite to force 
+more implementation changes. And since I’ve left myself a failing test with 
+clear failure message, 
