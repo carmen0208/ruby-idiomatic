@@ -39,6 +39,7 @@ for better performance
    * instance_variable_defind?
    * instance_variable_get(var)
    * instance_variable_set(var, value) 
+
 ### Why using Model instead of Proxy?
 
 By Using proxy, when  call the method, is should instance Proxy Class and call method of Proxy
