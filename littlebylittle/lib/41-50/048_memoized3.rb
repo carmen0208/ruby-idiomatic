@@ -1,5 +1,5 @@
-module Memoizable
-  def memoize(method_name)
+module ProxyModule
+  def proxy(method_name)
     original_method = instance_method(method_name)  # => #<UnboundMethod: Dictionary#anagrams_for>
 
     define_method(method_name) do |*args, &block|
@@ -8,19 +8,18 @@ module Memoizable
     end
   end
 end
-class Dictionary
-  extend Memoizable
+class RealClass
+  extend ProxyModule
 
   def initialize
   end
-  def anagrams_for
+  def target_method
     puts "real thing!"
   end
 
-  memoize :anagrams_for
+  proxy :target_method
 end
 
 
 
-Dictionary.new.anagrams_for
-
+RealClass.new.target_method
