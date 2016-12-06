@@ -19,5 +19,19 @@ END
 
   def execute
     puts "Under construction...."
+    gem_name = get_one_gem_name
+    gem_user = GemLove::GemUser.new
+    gem_user.endorse_gem(gem_name)
+  end
+end
+
+require 'net/http'
+
+module GemLove
+  class GemUser
+    def endorse_gem(gem_name)
+      url = URI("http://www.gemlove.org/endorsements/#{gem_name}")
+      Net::HTTP.post_form(url, {})
+    end
   end
 end

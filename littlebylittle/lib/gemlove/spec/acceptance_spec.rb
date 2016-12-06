@@ -41,6 +41,7 @@ describe 'gem carmenlove command' do
   end
 
   specify 'endorsing a gem' do
+    pending "completion of the server side"
     run 'gem carmenlove fattr'
     gem_named('fattr').should have(1).endorsements
   end
@@ -50,7 +51,7 @@ describe 'gem carmenlove command' do
     command = Gem::Commands::LovecarmenCommand.new
     p 'I am here'
     p command
-    p command.invoke(*args)
+    command.invoke(*args)
   end
 
   def gem_named(name)
