@@ -1,3 +1,14 @@
+## In order to using Data mapper and sqlite
+
+here's some commands that need to do 
+
+```sh
+brew install sqlite
+gem install dm-sqlite-adapter
+```
+
+add put `dm-sqlite-adapter` into your gemfile
+
 ## install rspec
 * create Gemfile and run command
    ```sh

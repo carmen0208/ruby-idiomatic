@@ -35,8 +35,9 @@ end
 
 describe 'gem carmenlove command' do
   before :all do
-#    DataMapper.setup(:default, 'sqlite::memory:')
-#    DataMapper.auto_migrate!
+    DataMapper.setup(:default, 'sqlite::memory:')
+    DataMapper.auto_migrate!
+   
   end
 
   specify 'endorsing a gem' do
@@ -47,7 +48,9 @@ describe 'gem carmenlove command' do
   def run(shell_command)
     args = shell_command.sub(/^gem carmenlove/, '').shellsplit
     command = Gem::Commands::LovecarmenCommand.new
-    command.invoke(*args)
+    p 'I am here'
+    p command
+    p command.invoke(*args)
   end
 
   def gem_named(name)
