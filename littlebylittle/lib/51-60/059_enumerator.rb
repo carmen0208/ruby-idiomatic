@@ -13,6 +13,7 @@ end
 #  puts name
 #end # => 
 
+# this is a method from object.rb
 enum = to_enum(:names) # => #<Enumerator: main:names>
 enum.next # => "Ylva"
 @names # => ["Brighid", "Shifra", "Yesamin"]

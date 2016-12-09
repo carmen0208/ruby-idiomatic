@@ -7,9 +7,9 @@ def sekrit(text)
     CHYPHER[char] || char
   }.join
 end
-
+#
 ARGF.each_line do |line|
-  print "#{ARGF.path}: #{sekrit(line)}"
+  p "#{ARGF.path}: #{sekrit(line)}"
 end
 
 #command line: ruby 058_ARGF.rb file1.txt  file2.txt
