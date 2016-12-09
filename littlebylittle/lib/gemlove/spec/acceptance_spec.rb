@@ -51,7 +51,9 @@ describe 'gem carmenlove command' do
     command = Gem::Commands::LovecarmenCommand.new
     p 'I am here'
     p command
+    p args
     command.invoke(*args)
+
   end
 
   def gem_named(name)
