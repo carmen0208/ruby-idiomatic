@@ -24,3 +24,8 @@
    end while 
    #......
    ```
+
+### Part3: Rindex
+  
+   * [Example](074_tail3_rindex.rb)
+   * [Usage](074_tail3_rindex_usecase.rb)
