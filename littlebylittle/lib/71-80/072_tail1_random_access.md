@@ -1,6 +1,6 @@
 ## How could we read the end of 10 line file without loop or load the entire file?
 
-* Every open file has a file offset associated with it
+#### Part1: Every open file has a file offset associated with it
 
   * [example](072_tail1_random_access.rb)
 
@@ -13,7 +13,14 @@
 
   * [usage](072_tail1_random_access_example.rb)
 
-## Read from the end, check if it contains 10 lines
+#### Part2: Read from the end, check if it contains 10 lines
 
   * [Example](073_tails2_do_while_without.rb)
-  * [Better version: Example](073_do_while.rb)
+  * [Better version: Example](073_tails2_do_while.rb)
+
+   ```ruby
+   begin
+   ##...
+   end while 
+   #......
+   ```
