@@ -11,3 +11,9 @@
   to //TODO list to read it again
 
   //TODO 077_tail6_process_as_object.rb
+
+### 078 Refactoring of reverse loop into enum.
+
+this is cool but I still not very good at get the whole idea of it, I would
+review it several times every day to try to know the whole idea.
+
