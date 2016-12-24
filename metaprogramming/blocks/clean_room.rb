@@ -20,6 +20,8 @@ clean_room.instance_eval do
   end
 end
 
+p clean_room.instance_eval {current_temperature}
+
 require_relative '../test/assertions'
 result = clean_room.instance_eval { current_temperature }
 assert_equals 11, result

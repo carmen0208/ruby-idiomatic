@@ -25,8 +25,8 @@ def index(paragraph)
   add_to_index(paragraph) if paragraph.title?
 end
 
-paragraph ="any string can be a paragraph"
-# paragraph ="ANY STRING CAN BE A PARAGRAPH"
+# paragraph ="any string can be a paragraph"
+paragraph ="ANY STRING CAN BE A PARAGRAPH"
 
 def paragraph.title?
   self.upcase == self

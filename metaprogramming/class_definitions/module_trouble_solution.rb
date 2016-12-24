@@ -19,7 +19,7 @@ class MyClass
   end
 end
 
-MyClass.my_method  # NoMethodError!
+p MyClass.my_method  # "hello"
 
 
 require_relative '../test/assertions'
