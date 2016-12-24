@@ -26,6 +26,10 @@ require 'set'
 a = [:first, :second, :third, :fourth]
 s = Set.new(a)
 
+#If we write code with explicit splats on the right side of an assignment, 
+#it will work so long as the input object is convertible to an Array. 
+#Whereas if we rely on implicit splatting, the input must be an actual Array or 
+#something very close to one.
 s.to_a # => [:first, :second, :third, :fourth]
 x,y,z = s
 x # => #<Set: {:first, :second, :third, :fourth}>
