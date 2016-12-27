@@ -2,6 +2,8 @@ $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 require 'gem_love'
 require 'shellwords'
 require 'data_mapper'
+require 'webmock/rspec'
+
 # temporary thing to put module here:
 module GemLove
   def self.gem_named(name)
@@ -32,9 +34,18 @@ describe 'gem carmenlove command' do
   end
 
   specify 'endorsing a gem' do
-    pending "completion of the server side"
+    # add the webmock library to my acceptance test, 
+    # and add an instruction to capture requests to the Gem-Love server. 
+    # But instead of using webmock to construct a fake server, 
+    # I instead tell it to use the real server class to handle all requests.
+    
+    #WebMock’s #to_rack method can use any rack app to respond to captured web requests
+    
+    #The net result is that I’m plugging the real client into the real server, 
+    #and only faking out the HTTP connection between them.
+    stub_request(:any, /^www.gemlove\.org/).to_rack(GemLove::Server)
     run 'gem carmenlove fattr'
-    gem_named('fattr').should have(1).endorsements
+    expect(gem_named('fattr')).to have(1).endorsements
   end
 
   def run(shell_command)

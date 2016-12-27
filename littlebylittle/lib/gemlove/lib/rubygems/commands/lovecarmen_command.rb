@@ -19,7 +19,9 @@ END
 
   def execute
     puts "Under construction...."
+
     gem_name = get_one_gem_name
+    # puts gem_name
     gem_user = GemLove::GemUser.new
     gem_user.endorse_gem(gem_name)
   end
