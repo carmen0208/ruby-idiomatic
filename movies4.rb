@@ -1,6 +1,6 @@
 #final refactered and cleared code:
 require 'csv'
-require_relative 'movie'
+require_relative 'movie3'
 rows = CSV.read('movies.csv', :headers => true, :header_converters => :symbol, :skip_blanks => true)
 
 movies = rows.map{ |row| Movie.new(row) }

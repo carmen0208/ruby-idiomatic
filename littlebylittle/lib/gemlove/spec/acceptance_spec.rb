@@ -26,6 +26,7 @@ module GemLove
     def endorsements
       endorsement_list.all_for_gem_named(name)
     end
+
     def  endorsed_by?(login)
       endorsements.by_login(login).any?
     end
