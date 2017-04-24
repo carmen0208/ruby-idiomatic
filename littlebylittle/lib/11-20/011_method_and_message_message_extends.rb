@@ -20,7 +20,7 @@ module UIWithExt
 end
 ui = BasicUI.new
 p ui.method(:notify)
-ui.notify("carme")
+ui.notify("carmen")
 
 eui = ui.extend(UIWithExt)
 p ui.method(:notify)

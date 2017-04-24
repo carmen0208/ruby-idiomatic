@@ -1,6 +1,6 @@
 class Parent
   def hello(subject ="World")
-    puts "Hello, #{subject}"  
+    puts "Hello, #{subject}"
     if block_given?
       yield
       puts "Well, nice seeing you !"
@@ -13,6 +13,7 @@ class Child < Parent
     #1. super(subject)
     #2. super
     if subject == :default
+      # puts true
       super()
     else
       super(subject)
@@ -26,6 +27,6 @@ Child.new.hello(:defalut)
 puts "here's the thing that we want to be output"
 Child.new.hello
 puts "with block"
-Child.new.hello(:default) do
+Child.new.hello(:defalut) do
   puts "Hi there, Child!"
 end

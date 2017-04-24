@@ -6,23 +6,24 @@ class TeaClock
     self.ui = StudiUi.new
     self.timer = SleepTimer.new(minutes, ui.method(:notify))
     init_plugins
-
   end
 
   def init_plugins
     @plugins = []
+    # puts ::Plugins.constants
     ::Plugins.constants.each do |name|
       @plugins << ::Plugins.const_get(name).new(self)
     end
+    # p @plugins
   end
 
   def start
     timer.start
   end
 end
-SleepTimer = Struct.new(:minutes, :notifier) do 
+SleepTimer = Struct.new(:minutes, :notifier) do
   def start
-    sleep minutes * 60 
+    sleep minutes * 60
     notifier.call("Tea is ready!")
   end
 end
